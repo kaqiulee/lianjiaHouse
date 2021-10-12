@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jc.dao.HouseMapper">
+
+    <select id="selectHouseByPrice" resultType="com.jc.entity.House">
+        select * from house where price between #{low} and #{up}
+    </select>
+    
+    <select id="selectHouseByInnerAcreage" resultType="com.jc.entity.House">
+        select * from house where innerAcreage between #{low} and #{up}
+    </select>
+
+    <select id="selectHouseByType" resultType="com.jc.entity.House">
+        select * from house where type=concat(#{num1},"室",#{num2},"厅",#{num3},"厨",#{num4},"卫")
+    </select>
+
+    <select id="selectHouseByRenovation" parameterType="String" resultType="com.jc.entity.House">
+        select * from house where renovation=#{rnv}
+    </select>
+
+    <select id="selectHouseByStructure" parameterType="String" resultType="com.jc.entity.House">
+        select * from house where structure=#{strc}
+    </select>
+
+
+</mapper>
